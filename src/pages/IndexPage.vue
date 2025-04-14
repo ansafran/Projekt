@@ -1,6 +1,9 @@
 <template>
   <q-page class="flex flex-center">
     <div class="todo-lista">
+      <!-- Komponenta Logo -->
+      <Logo />
+      
       <h1>Tvoja To-Do lista</h1>
 
       <q-input 
@@ -29,8 +32,8 @@
 
           <q-item-section side>
             <q-btn color="red" @click="obrisi(index)">
-  Obriši
-</q-btn>
+              Obriši
+            </q-btn>
           </q-item-section>
         </q-item>
       </q-list>
@@ -39,31 +42,27 @@
 </template>
 
 <script>
+import Logo from '../components/logo.vue';
+
+
 export default {
+  components: {
+    Logo
+  },
   data() {
     return {
-      novi: "", 
-      tasks: [], 
+      novi: "",
+      tasks: [],
     };
   },
- 
- /* watch: {
-    
-    tasks(novis) {
-      localStorage.setItem('data', JSON.stringify(novis));
-    }
-  }, */ //Nisam znala bas ovaj watch dio napraviti
-  
-  
   methods: {
-   
     dodaj() {
       if (this.novi.trim()) {
         this.tasks.push({
           text: this.novi,
           completed: false,
         });
-        this.novi = ""; 
+        this.novi = "";
       }
     },
     obrisi(index) {
@@ -79,19 +78,26 @@ export default {
   margin: 0 ;
   text-align: center;
 }
+
 .zadatak-zadan {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
 }
+
 .completed {
   text-decoration: line-through;
 }
+
 .zadatak {
   margin-bottom: 20px;
-   font-size: 16px;
+  font-size: 16px;
 }
 
-
+.h1 {
+  display: inline;
+  font-size: 24px;
+  margin: 0;
+}
 </style>
