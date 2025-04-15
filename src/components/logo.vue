@@ -1,19 +1,27 @@
 <template>
     <div class="logo-c">
-      <img src="/logo.png" alt="Logo" class="logo" />
+        <img :src="src" alt="Logo" class="logo" />
     </div>
   </template>
   
   <script>
-  export default {
-    name: 'Logo'
-  };
+ export default {
+  name: 'Logo',
+  props: {
+    src: {
+      type: String,
+      required: true 
+    }
+  }
+};
   </script>
   
   <style scoped>
 .logo-c {
+
   margin-bottom: 20px;
   justify-content: center;
+  position: left;
 }
   
   .logo {

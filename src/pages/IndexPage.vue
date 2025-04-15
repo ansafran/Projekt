@@ -1,8 +1,7 @@
 <template>
   <q-page class="flex flex-center">
     <div class="todo-lista">
-      <!-- Komponenta Logo -->
-      <Logo />
+      <Logo :src="logoPath" />
       
       <h1>Tvoja To-Do lista</h1>
 
@@ -44,7 +43,6 @@
 <script>
 import Logo from '../components/logo.vue';
 
-
 export default {
   components: {
     Logo
@@ -53,8 +51,17 @@ export default {
     return {
       novi: "",
       tasks: [],
+      logoPath: '/logo.png',
+
     };
   },
+
+  mounted() {
+  setTimeout(() => {
+    this.logoPath = '/done.png';
+  }, 3000);
+},
+
   methods: {
     dodaj() {
       if (this.novi.trim()) {
